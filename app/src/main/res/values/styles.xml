@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="TextPopulation" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/text_dark_grey</item>
+        <item name="android:textSize">@dimen/text_xxx_large</item>
+    </style>
+
+    <style name="TextCity" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/text_dark_grey</item>
+        <item name="android:textSize">@dimen/text_default</item>
+    </style>
+
+    <style name="TextCountry" parent="TextAppearance.AppCompat.Large">
+        <item name="android:textColor">@color/text_dark_grey</item>
+        <item name="android:textSize">@dimen/text_default</item>
+    </style>
 </resources>
