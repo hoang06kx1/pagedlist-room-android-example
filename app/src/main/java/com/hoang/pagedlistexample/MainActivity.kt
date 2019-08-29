@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.hoang.pagedlistexample.repository.City
@@ -24,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         rv_cities.setHasFixedSize(true)
         rv_cities.layoutManager = LinearLayoutManager(this)
+        rv_cities.addItemDecoration(DividerItemDecoration(applicationContext, DividerItemDecoration.VERTICAL))
         rv_cities.adapter = CityAdapter()
         mainViewModel.cityList.observe(this, Observer {
             (rv_cities.adapter as CityAdapter).submitList(it)
@@ -61,7 +63,7 @@ class CityViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     fun bindData(city: City) {
         tvCity.text = city.city
         tvCountry.text = city.country
-        tvPopulation.text = city.population.toString()
+        tvPopulation.text = String.format("%,d", city.population)
     }
 
     fun clear() {
