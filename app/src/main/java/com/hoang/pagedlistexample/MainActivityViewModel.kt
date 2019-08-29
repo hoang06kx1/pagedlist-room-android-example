@@ -8,5 +8,5 @@ import com.hoang.pagedlistexample.repository.City
 import com.hoang.pagedlistexample.repository.CityRepository
 
 class MainActivityViewModel(repository: CityRepository): ViewModel() {
-    val cityList: LiveData<PagedList<City>> = LivePagedListBuilder(repository.getCities(), 50).build()
+    val cityList: LiveData<PagedList<City>> = LivePagedListBuilder(repository.getCities(), 30).build()
 }
