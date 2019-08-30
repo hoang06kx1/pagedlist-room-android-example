@@ -1,9 +1,12 @@
 package com.hoang.pagedlistexample.repository
 
 import android.content.Context
+import androidx.annotation.VisibleForTesting
+import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.paging.DataSource
 import androidx.room.*
 import com.fstyle.library.helper.AssetSQLiteOpenHelperFactory
+import java.security.KeyStore
 
 @Entity(tableName = "cities")
 data class City(
@@ -17,6 +20,10 @@ data class City(
 interface CityDao {
     @Query("SELECT * FROM cities")
     fun loadCities(): DataSource.Factory<Int, City>
+
+    @VisibleForTesting(otherwise = PRIVATE)
+    @Query("SELECT COUNT(*) FROM cities")
+    fun countCities(): Int
 }
 
 @Database(entities = [City::class], version = 1)
